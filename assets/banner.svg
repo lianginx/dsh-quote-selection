@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="300" viewBox="0 0 880 300" role="img" aria-label="选中会话文字,点击浮出的引用按钮,内容以 Markdown 块引用写入输入框">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8FAFF"/>
+      <stop offset="1" stop-color="#EDF1FA"/>
+    </linearGradient>
+    <linearGradient id="pill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F2F5FC"/>
+    </linearGradient>
+    <filter id="lift" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#1E2A4A" flood-opacity="0.18"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8CA0C6"/>
+    </marker>
+  </defs>
+
+  <rect x="1" y="1" width="878" height="298" rx="18" fill="url(#bg)" stroke="#DBE2F0"/>
+
+  <!-- ── Card 1: select text in a reply ── -->
+  <g>
+    <rect x="40" y="64" width="232" height="176" rx="12" fill="#FFFFFF" stroke="#DFE6F2"/>
+    <circle cx="66" cy="92" r="9" fill="#C9D6EF"/>
+    <rect x="84" y="84" width="96" height="8" rx="4" fill="#E4EAF5"/>
+    <text x="58" y="126" font-family="-apple-system,'PingFang SC','Segoe UI',sans-serif" font-size="13" fill="#3D4A63">这是一段助手回复,</text>
+    <rect x="54" y="136" width="200" height="21" rx="4" fill="#BCD2FF"/>
+    <text x="58" y="151" font-family="-apple-system,'PingFang SC','Segoe UI',sans-serif" font-size="13" font-weight="600" fill="#1F33B8">选中这一行或几行文字,</text>
+    <text x="58" y="173" font-family="-apple-system,'PingFang SC','Segoe UI',sans-serif" font-size="13" fill="#3D4A63">然后松开鼠标。</text>
+    <text x="156" y="222" font-family="-apple-system,'PingFang SC','Segoe UI',sans-serif" font-size="13" font-weight="600" fill="#5B6B8C">① 选中文字</text>
+  </g>
+
+  <!-- ── Card 2: floating quote button ── -->
+  <g>
+    <rect x="324" y="64" width="232" height="176" rx="12" fill="#FFFFFF" stroke="#DFE6F2"/>
+    <rect x="342" y="118" width="196" height="21" rx="4" fill="#BCD2FF"/>
+    <text x="346" y="133" font-family="-apple-system,'PingFang SC','Segoe UI',sans-serif" font-size="13" font-weight="600" fill="#1F33B8">选区仍然保持高亮,</text>
+    <g filter="url(#lift)">
+      <rect x="352" y="82" width="86" height="28" rx="14" fill="url(#pill)" stroke="#C7D2E8"/>
+      <text x="366" y="101" font-family="-apple-system,'PingFang SC','Segoe UI',sans-serif" font-size="14" font-weight="700" fill="#22304F">&#10077; 引用</text>
+    </g>
+    <path d="M395 112 L395 116" stroke="#8CA0C6" stroke-width="1.5"/>
+    <text x="400" y="222" font-family="-apple-system,'PingFang SC','Segoe UI',sans-serif" font-size="13" font-weight="600" fill="#5B6B8C">② 点击「❝ 引用」</text>
+  </g>
+
+  <!-- ── Card 3: composer receives the blockquote ── -->
+  <g>
+    <rect x="608" y="64" width="232" height="176" rx="12" fill="#FFFFFF" stroke="#DFE6F2"/>
+    <rect x="624" y="82" width="200" height="120" rx="10" fill="#FBFCFE" stroke="#E2E8F4"/>
+    <text x="638" y="106" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13" fill="#37507E">&gt; 引用的第一行</text>
+    <text x="638" y="128" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13" fill="#37507E">&gt;</text>
+    <text x="638" y="150" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13" fill="#37507E">&gt; 第二行</text>
+    <rect x="652" y="164" width="2" height="16" fill="#4176E6"/>
+    <text x="662" y="177" font-family="-apple-system,'PingFang SC','Segoe UI',sans-serif" font-size="13" fill="#9AA7BE">直接输入你的问题…</text>
+    <text x="684" y="222" font-family="-apple-system,'PingFang SC','Segoe UI',sans-serif" font-size="13" font-weight="600" fill="#5B6B8C">③ 引用进入输入框</text>
+  </g>
+
+  <!-- arrows -->
+  <line x1="278" y1="152" x2="316" y2="152" stroke="#8CA0C6" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="562" y1="152" x2="600" y2="152" stroke="#8CA0C6" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>
