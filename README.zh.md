@@ -32,6 +32,7 @@ dsh plugin --profile web add github:lianginx/dsh-quote-selection
 - **规范的 Markdown 输出** —— 每行一个 `> `,多行选择自动带 `>` 续行符,发送后渲染为标准块引用
 - **连续引用** —— 再次引用自动追加,两段之间恰好空一行,方便针对多段内容提问
 - **走正门写入** —— 通过输入机器的公开写路径 `setDraft` 写入草稿,撤销栈、引用 chip、字数统计等既有机制不受影响
+- **跟随应用语言** —— 按钮文案经 DSH locale 服务渲染:中文界面「引用」,英文界面 "Quote"
 - **零依赖、零构建** —— 纯 JavaScript 直发,GitHub 安装不触发任何代码执行,无需 pnpm `allowBuilds` 构建授权
 
 ## 安装
@@ -85,6 +86,7 @@ dsh plugin --profile web update dsh-quote-selection
 | 草稿写入 | `conversation.composer.dock` 座位上的隐形桥组件持有 `inputActions.setDraft`(输入机器唯一公开写路径) |
 | 样式 | 工厂闭包内注入带 `data-plugin` 标签的样式表,复用主题 token(`--dsw-alias-*`),深浅色自适应 |
 | 定时器 | Cordis `timer` 服务(`inject: ['timer']`),不触碰原生定时器 |
+| 文案 | 插件私有命名空间经 Cordis `locale` 服务注册(`zh`/`en`,缺省回落英文) |
 
 浏览器半边只依赖基线模块表(`react`)与 Cordis 服务(`slots`、`timer`),无任何其他 `@deepseek-ai/*` 值依赖;包结构遵循 DSH 插件发布规范([中文发布教程](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/develop/basic/publish.zh.md)):manifest 双声明 `dsh.bundle.patch` + `dsh.client { platform: 'web' }`,patch 只 insert 新行。
 

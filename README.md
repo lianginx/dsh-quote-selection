@@ -32,6 +32,7 @@ Inspired by ChatGPT's "Ask ChatGPT" selection popover: select any text in a conv
 - **Clean Markdown output** — one `> ` per line; multi-line selections carry proper `>` continuation lines and render as a standard blockquote after sending
 - **Chained quotes** — quoting again appends a new block separated by exactly one blank line, handy for asking about several passages at once
 - **Writes through the front door** — inserts via `inputActions.setDraft`, the input machine's single public write path, so undo history, reference chips, and draft stats all keep working
+- **Follows the app language** — the button label renders through DSH's locale service: 「引用」 on a Chinese UI, "Quote" on an English one
 - **Zero dependencies, zero build** — plain JavaScript shipped as-is; installing from GitHub runs no code and needs no pnpm `allowBuilds` permission
 
 ## Install
@@ -85,6 +86,7 @@ dsh plugin --profile web update dsh-quote-selection
 | Draft write | An invisible bridge component on `conversation.composer.dock` holding `inputActions.setDraft` — the input machine's only public write path |
 | Styling | A `data-plugin`-tagged stylesheet injected inside the factory closure, built on theme tokens (`--dsw-alias-*`) so light and dark both adapt |
 | Timers | The Cordis `timer` service (`inject: ['timer']`); no native timer globals |
+| Copy | A plugin-private locale namespace registered through the Cordis `locale` service (`zh`/`en`, English fallback) |
 
 The browser half depends only on baseline module-table entries (`react`) and Cordis services (`slots`, `timer`) — no other `@deepseek-ai/*` value imports. The package follows the DSH publishing conventions ([publish tutorial](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/develop/basic/publish.md)): manifest dual declaration `dsh.bundle.patch` + `dsh.client { platform: 'web' }`, and a patch that only inserts rows.
 

@@ -65,7 +65,7 @@ function buildQuoteBlock(text) {
 
 module.exports = {
   name: 'quote-selection',
-  inject: ['timer'],
+  inject: ['timer', 'locale'],
   apply(ctx) {
     const slots = ctx.get('slots')
     if (slots === undefined) return
@@ -73,6 +73,18 @@ module.exports = {
     // Package-private handoff: the session-scoped bridge installs the input
     // machine's single public draft write path; the root-scoped overlay reads it.
     const bridge = { setDraft: null }
+
+    // Follow the app language: one plugin-private namespace, both shipped
+    // locales registered atomically; bind() reads the active locale at call
+    // time and falls back to English, then to the key itself.
+    const t = ctx.locale.bind('quote-selection')
+    ctx.effect(
+      () => ctx.locale.register('quote-selection', {
+        zh: { quote: '\u5F15\u7528' },
+        en: { quote: 'Quote' },
+      }),
+      'quote-selection: dictionaries',
+    )
 
     /** Append one quote block to the draft and park the caret right below it. */
     function insertQuote(text) {
@@ -96,6 +108,12 @@ module.exports = {
       const stateHook = React.useState(null)
       const target = stateHook[0]
       const setTarget = stateHook[1]
+      const tickState = React.useState(0)
+      const bumpTick = tickState[1]
+      // Dictionary registrations and locale switches bump the locale
+      // revision; the subscription below forces one re-render so the button
+      // label follows the active language.
+      React.useEffect(() => ctx.locale.subscribe(() => bumpTick((n) => n + 1)), [])
       React.useEffect(() => {
         let raf = 0
         const hide = () => setTarget(null)
@@ -146,7 +164,7 @@ module.exports = {
         },
       },
       React.createElement('span', { className: 'dshq-glyph' }, '\u275D'),
-      '\u5F15\u7528')
+      t('quote'))
     }
 
     function QuoteBridge(props) {

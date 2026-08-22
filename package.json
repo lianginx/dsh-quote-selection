@@ -1,7 +1,7 @@
 {
   "name": "dsh-quote-selection",
   "description": "DSH Web UI plugin: select conversation text and quote it into the composer as a Markdown blockquote",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "license": "MIT",
   "engines": {
