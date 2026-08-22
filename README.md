@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="dsh-quote-selection:选中的文字,一键变成输入框里的引用块" width="880">
+<img src="assets/banner.svg" alt="dsh-quote-selection: select chat text, click ❝ Quote, it lands in the composer as a Markdown blockquote" width="880">
 
 # dsh-quote-selection
 
@@ -89,6 +89,8 @@ The browser half depends only on baseline module-table entries (`react`) and Cor
 ---
 
 ## 简体中文
+
+<img src="assets/banner.zh.svg" alt="dsh-quote-selection:选中的文字,点击「❝ 引用」,以 Markdown 块引用进入输入框" width="880">
 
 一个 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) Web UI 插件,参考 ChatGPT 网页端“询问 ChatGPT”的交互:在会话回复中选中一行或多行文字,选区第一行顶部浮出「❝ 引用」按钮,点击后选中内容以 Markdown 块引用写入输入框,光标停在引用块下一行——直接输入提问。
 
